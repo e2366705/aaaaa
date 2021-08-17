@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <title> localStorage_list </title>
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/jquery/2.1.4/jquery.min.js" type="application/javascript">
+    </script>
+    <script src="https://s0.pstatp.com/cdn/expire-1-M/vue/2.6.10/vue.min.js" type="application/javascript"></script>
+    <link href="https://s2.pstatp.com/cdn/expire-1-M/twitter-bootstrap/3.4.0/css/bootstrap.min.css" type="text/css"
+        rel="stylesheet" />
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/twitter-bootstrap/3.4.0/js/bootstrap.min.js"
+        type="application/javascript"></script>
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/layer/2.3/layer.js" type="application/javascript"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        body {
+            background-color: rgb(85, 83, 72);
+            color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <h1>localStorage_list~</h1>
+
+
+
+    <br><br><br>
+    <div id="app1">
+    <span v-for="(item, index) in result_json" style="font-size: 16px;">
+        <!-- <p>{{index}}</p> -->
+        <!-- <p class="english" onclick="english_click(this)" style="background-color: pink; color:black;  word-break: break-all;   "> {{value.english}}</p>  -->
+        <!-- <p class="chinese">{{value.english}}</p> -->
+        {{item.key}} * 
+        <!-- <p class="chinese">{{value.chinese}}</p> -->
+        <!-- <div style="height: 100px;"></div> -->
+    </span>
+    </div>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+
+    
+    
+    
+    
+    
+    
+    </body>
+    <script>
+        var array_word = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            let localStorage_key = localStorage.key(i)
+            let localStorage_value = localStorage.getItem(localStorage_key);
+            console.log(localStorage_key);
+            console.log(localStorage_value);
+            array_word.push({
+                "key": localStorage_key,
+                "value": localStorage_value
+            });
+        }
+        new Vue({
+            el: '#app1',
+            data: {
+                result_json: array_word
+            }
+        });
+        </script>
+    </html>
